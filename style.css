@@ -1,0 +1,103 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap');
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    min-height: 100vh;
+}
+
+
+/*
+    header of the webpage
+*/
+.bodyHeader
+{
+    padding: 20px;
+    text-align: center;
+    background-color: bisque;
+}
+h1
+{
+    font-size: 3.8em;
+}
+/*
+    content of the webpage - class: content
+*/
+    /*
+        header of the content - class: contentHeader
+    */
+
+    .content
+    {
+        width: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+    }
+
+    .contentHeader
+    {
+        align-self: center;
+    }
+    .contentGame
+    {
+        width: auto;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .player
+    {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .playerTitle
+    {
+        font-weight: 900;
+        font-size: 20px;
+    }
+    /*
+        body of the content - class: contentGame 
+    */
+
+
+
+/*
+    footer of the webpage
+*/
+
+.footer
+{
+    margin-top: auto;
+}
+.contactIcons
+{
+
+    padding: 20px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+}
+.contactIcons > img
+{
+    width: 32px;
+    height: 32px;
+}
