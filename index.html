@@ -6,8 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors!</title>
     <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet"></style>
 </head>
 <body>
-    
+    <header class="bodyHeader">
+        <h1> Ultimate Rock Paper Scissors!</h1>
+    </header>
+    <section class="content">
+        <header class="contentHeader">
+            <button class="buttonStart">Start!</button>
+        </header>
+        <section class="contentGame">
+            <div class="playerPerson">
+                <h2 class="playerTitle"> You!</h2>
+                <p class="playerWins" id="winsPerson">You won 0 games!</p>
+                <img class="personMove" alt="You haven't selected a move yet.">
+                <div class="moveButtons">
+                    <button class="rock">Rock!</button>
+                    <button class="paper">Paper!</button>
+                    <button class="scissors">Scissors!</button>
+                </div>
+            </div>
+
+            <div class="playerPC">
+                <h2 class="playerTitle"> PC!</h2>
+                <p class="playerWins" id="winsPC">PC has won 0 games!</p>
+                <img class="pcMove" alt="PC hasn't selected a move yet because you need 
+                to select your move first.">
+
+            </div>
+        </section>
+    </section>
+
+    <footer>
+        <nav class="contactIcons">
+            <img src="icons/linkedin.svg" alt="Access Pedro's Linkedin profile">
+            <img src="icons/github.svg" alt="Access Pedro's Github profile">
+        </nav>
+    </footer>
 </body>
 </html>
