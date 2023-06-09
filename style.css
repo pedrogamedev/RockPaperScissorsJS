@@ -45,12 +45,22 @@ h1
         display: flex;
         flex-direction: column;
         align-items: space-between;
+        margin: auto 0;
     }
 
     .contentHeader
     {
         align-self: center;
     }
+    .buttonStart
+    {
+        margin: 15px;
+
+        padding: 5px 15px;
+        text-align: center;
+        font-size: 2em;
+    }
+
     .contentGame
     {
         width: auto;
@@ -63,14 +73,40 @@ h1
         width: 200px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 8px;
-        text-align: center;
     }
 
     .playerTitle
     {
         font-weight: 900;
         font-size: 20px;
+    }
+
+    .playerWins
+    {
+        font-family: 1.4em;
+    }
+    .pcMove
+    {
+        width: 196px;
+        height:196px;
+    }
+
+    .moveButtons
+    {
+        width: 260px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 30px;
+    }
+
+    .moveButtons > button
+    {
+        width: 100px;
+        padding: 10px 0;
+        font-size: 1.8em;
     }
     /*
         body of the content - class: contentGame 
@@ -96,8 +132,23 @@ h1
     gap: 20px;
 
 }
-.contactIcons > img
+a
 {
     width: 32px;
     height: 32px;
 }
+
+
+
+/*
+fazer
+
+-escolher cores corretas
+
+- estilizar botao start
+- estilizar text qnts venceu
+- colocar imagens das maos
+-
+
+- icons link
+*/
