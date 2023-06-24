@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors!</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link href="style.css" rel="stylesheet"></style>
 </head>
 <body>
@@ -14,13 +14,13 @@
     </header>
     <section class="content">
         <header class="contentHeader">
-            <button class="buttonStart">Start!</button>
+            <button class="buttonMain">Start!</button>
         </header>
         <section class="contentGame">
             <div class="player" id="playerPerson">
                 <h2 class="playerTitle"> You!</h2>
                 <p class="playerWins" id="winsPerson">You won 0 games!</p>
-                <img class="personMove" alt="You haven't selected a move yet.">
+                <img src="icons/question_mark_FILL0_wght400_GRAD0_opsz48.svg"class="move" id="playerMove" alt="You haven't selected a move yet.">
                 <div class="moveButtons">
                     <button class="rock">Rock!</button>
                     <button class="paper">Paper!</button>
@@ -31,7 +31,7 @@
             <div class="player" id="playerPC">
                 <h2 class="playerTitle"> PC!</h2>
                 <p class="playerWins" id="winsPC">PC has won 0 games!</p>
-                <img  src="icons/question_mark_FILL0_wght400_GRAD0_opsz48.svg"class="pcMove" alt="PC hasn't selected a move yet because you need 
+                <img  src="icons/question_mark_FILL0_wght400_GRAD0_opsz48.svg"class="move" id="pcMove" alt="PC hasn't selected a move yet because you need 
                 to select your move first.">
 
             </div>
