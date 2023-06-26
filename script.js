@@ -16,12 +16,22 @@ const mainButton = document.querySelector('.buttonMain');
 //  Player Buttons
     const rockBtn = document.querySelector('.rock');
 
-    const paperBtn = document.querySelector('.rock');
+    const paperBtn = document.querySelector('.paper');
 
-    const scissorsBtn = document.querySelector('.rock');
+    const scissorsBtn = document.querySelector('.scissors');
 
 // Images
 
+    const playerImg = document.querySelector('#playerMove');
+    const pcImg = document.querySelector('#pcMove');
+
+// Text
+
+    const gameText = document.querySelector('.gameAlert')
+
+    const counterPlayer = document.getElementById('winsPerson')
+
+    const counterPC = document.getElementById('winsPC')
 
 //StartGame Button
 
@@ -31,20 +41,24 @@ mainButton.addEventListener('click', () =>
     switch(gameState)
     {
         case "off":
-            {
                 curRound = 0;
                 startGame();
-            }
+                break;
         case "nextRound":
-            {
                 updatePC_UI("none");
                 updatePlayer_UI("none");
                 startGame();
-            }
+                break;
         case "end":
-            {
-
-            }
+        {
+            pcWins = 0;
+            playerWins = 0;
+            curRound = 0;
+            updatePC_UI("none");
+            updatePlayer_UI("none");
+            startGame();
+            break;
+        }
     }
 });
 
@@ -52,34 +66,41 @@ mainButton.addEventListener('click', () =>
 
     function startGame()
     {
-        console.log("hello litle stylus")
+        gameText.innerText = "Select your move";
         gameState = "playerChoice";
     }
 
     //pegando o input do player
 
-        if(gameState == "playerChoice")
-        {
+
             rockBtn.addEventListener('click', () =>
             {
-                playerSelection = "rock";
-                updatePlayer_UI(playerSelection);
-                playRound();
+                if(gameState == "playerChoice")
+                {
+                    playerSelection = "rock";
+                    updatePlayer_UI(playerSelection);
+                    playRound();
+                }
 
             });
             paperBtn.addEventListener('click', () =>
             {
-                playerSelection = "paper";
-                updatePlayer_UI(playerSelection);
-                playRound();
+                if(gameState == "playerChoice")
+                {
+                    playerSelection = "paper";
+                    updatePlayer_UI(playerSelection);
+                    playRound();
+                }
             });
             scissorsBtn.addEventListener('click', () =>
             {
-                playerSelection = "scissors";
-                updatePlayer_UI(playerSelection);
-                playRound();
+                if(gameState == "playerChoice")
+                {
+                    playerSelection = "scissors";
+                    updatePlayer_UI(playerSelection);
+                    playRound();
+                }
             });
-        }
 
     function playRound()
     {
@@ -88,12 +109,14 @@ mainButton.addEventListener('click', () =>
 
         computerSelection = getComputerChoice();
 
+        updatePC_UI(computerSelection);
+
         gameState = "round";
 
 
         if(playerSelection === computerSelection)
         {
-            console.log("empate!");
+            gameText.innerText = "Tie! Press the button to start the next round!";
         }
         
         switch(computerSelection)
@@ -102,44 +125,60 @@ mainButton.addEventListener('click', () =>
             {
                 if(playerSelection == "paper")
                 {
+                    gameText.innerText = "PC won! Press the button to start next round!";
+
                     pcWins += 1;
                 }
                 else
                 {
+                    gameText.innerText = "You won! Press the button to start next round!";
+
                     playerWins += 1;
                 }
+                break;
             }
             case "rock":
             {
                 if(playerSelection == "scissors")
                 {
+                    gameText.innerText = "PC won! Press the button to start next round!";
+
                     pcWins += 1;
                 }
                 else
                 {
+                    gameText.innerText = "You won! Press the button to start next round!";
+
                     playerWins += 1;
                 }
+                break;
             }
             case "paper":
             {
                 if(playerSelection == "rock")
                 {
+                    gameText.innerText = "PC won! Press the button to start next round!";
+
                     pcWins += 1;
                 }
                 else
                 {
+                    gameText.innerText = "You won! Press the button to start next round!";
+
                     playerWins += 1;
-                }
+                }                
+                break;
             }
         }
 
-        round +=1;
+        curRound +=1;
+        UpdateCounter();
         nextRound();
     }
 
     function nextRound()
     {
-        if(round < 5)
+        if(curRound < 5)
         {
             computerSelection = undefined;
             playerSelection = undefined;
@@ -155,7 +194,21 @@ mainButton.addEventListener('click', () =>
 
     function endGame()
     {
+        if(playerWins > pcWins)
+        {
+            gameText.innerText = "You won the game! Press the button to restart";
 
+        }
+        else if(pcWins > playerWins)
+        {
+            gameText.innerText = "PC won the game! Press the button to restart";
+
+        }
+        else
+        {
+            gameText.innerText = "A Tie! Press the button to restart the game";
+        }
+        gameState = "end";
     }
 
 
@@ -168,74 +221,60 @@ function getComputerChoice()
     switch(randomNum)
     {
         case 0:
-        {
-            computerSelection = "paper";
-        }
+            return "paper";
         case 1:
-        {
-            computerSelection =  "rock";
-        }
+            return "rock";
         case 2:
-        {
-            computerSelection = "scissors";
-        }
+            return "scissors";
     }   
-
-    updatePC_UI(computerSelection);
 }
 
 
 //UI logic
 function updatePC_UI(choice)
 {
-
-    if(choice == "paper")
+    switch(choice)
     {
-
-    }
-    else if(choice == "rock")
-    {
-
-    }
-    else if (choice == "scissors")
-    {
-
-    }
-    else
-    {
-
+            case "paper":
+                pcImg.src = "icons/paper.svg"
+                break;
+            case "rock":
+                pcImg.src = "icons/rock.svg"
+                break;
+            case "scissors":
+                pcImg.src = "icons/scissors.svg"
+                break;
+            default:
+                pcImg.src = "icons/default.svg"
+                break;
     }
 }
 
 function updatePlayer_UI(choice)
 {
-    if(choice == "paper")
+    switch(choice)
     {
-
-    }
-    else if(choice == "rock")
-    {
-
-    }
-    else if (choice == "scissors")
-    {
-
-    }
-    else
-    {
-        
+        case "paper":
+            playerImg.src = "icons/paper.svg"
+            break;
+        case "rock":
+            playerImg.src = "icons/rock.svg"
+            break;
+        case "scissors":
+            playerImg.src = "icons/scissors.svg"
+            break;
+        default:
+            playerImg.src = "icons/default.svg"
+            break;
     }
 }
 
 
 function UpdateCounter()
 {
-    const counterPlayer = document.getElementById('winsPerson')
     counterPlayer.innerText= "You won " + playerWins + " games!";
 
-    const counterPC = document.getElementById('winsPC')
-    counterPC.innerText= "PC has won " + playerWins + " games!";
-
+    counterPC.innerText= "PC has won " + pcWins + " games!";
 }
 
 
